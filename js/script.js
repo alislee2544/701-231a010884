@@ -113,38 +113,68 @@ const products = [
     // ==========================================
     // BÀI 3: ĐỒNG HỒ ĐẾM NGƯỢC
     // ==========================================
-    const timerDisplay = document.getElementById('timer-display');
-    if (timerDisplay) {
-        let timeLeft = 10 * 60; 
+ const timerDisplay = document.getElementById('timer-display');
+    const timeInput = document.getElementById('time-input');
+    const startTimerBtn = document.getElementById('start-timer-btn');
+
+    if (timerDisplay && timeInput && startTimerBtn) {
         let timerInterval;
 
-        const updateTimer = () => {
-            const minutes = Math.floor(timeLeft / 60);
-            const seconds = timeLeft % 60;
+        const startTimer = () => {
+            // Lấy giá trị phút từ ô input
+            let minutesInput = parseInt(timeInput.value);
             
-            timerDisplay.textContent = 
-                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-
-            if (timeLeft <= 60 && timeLeft > 0) {
-                timerDisplay.classList.add('danger');
+            // Validate: Nếu nhập sai, không nhập, hoặc nhập số âm
+            if (isNaN(minutesInput) || minutesInput <= 0) {
+                alert("Vui lòng nhập số phút hợp lệ (lớn hơn 0)!");
+                return;
             }
 
-            if (timeLeft === 0) {
-                clearInterval(timerInterval);
-                timerDisplay.classList.remove('danger');
-                alert("Đã hết thời gian!"); 
-            }
-            timeLeft--;
+            let timeLeft = minutesInput * 60; // Đổi phút ra giây
+
+            // RẤT QUAN TRỌNG: Xóa bộ đếm cũ (nếu đang chạy) để tránh lỗi đếm lùi quá nhanh (chạy đè nhiều interval)
+            clearInterval(timerInterval);
+            timerDisplay.classList.remove('danger');
+
+            const updateTimer = () => {
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                
+                // Format định dạng MM:SS
+                timerDisplay.textContent = 
+                    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                // Hiệu ứng đỏ nhấp nháy khi còn <= 1 phút
+                if (timeLeft <= 60 && timeLeft > 0) {
+                    timerDisplay.classList.add('danger');
+                } else {
+                    timerDisplay.classList.remove('danger');
+                }
+
+                // Xử lý khi hết giờ
+                if (timeLeft === 0) {
+                    clearInterval(timerInterval);
+                    timerDisplay.classList.remove('danger');
+                    // setTimeout để trình duyệt kịp hiển thị 00:00 trước khi popup hiện lên chặn lại
+                    setTimeout(() => alert("Đã hết thời gian!"), 100); 
+                }
+                timeLeft--;
+            };
+
+            // Gọi hàm ngay lập tức để không bị delay 1 giây đầu tiên
+            updateTimer(); 
+            // Bắt đầu chu kỳ 1 giây
+            timerInterval = setInterval(updateTimer, 1000);
         };
 
-        updateTimer(); 
-        timerInterval = setInterval(updateTimer, 1000);
+        // Gắn sự kiện click cho nút "Bắt đầu đếm"
+        startTimerBtn.addEventListener('click', startTimer);
 
+        // Xóa interval khi người dùng rời trang để tránh memory leak
         window.addEventListener('beforeunload', () => {
             clearInterval(timerInterval);
         });
     }
-
     // ==========================================
     // GALLERY ẢNH Ở TRANG ĐIỂM DANH
     // ==========================================
