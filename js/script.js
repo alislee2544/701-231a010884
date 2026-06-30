@@ -6,13 +6,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const productGrid = document.getElementById('product-grid');
     if (productGrid) {
         // Dữ liệu sản phẩm có thêm hình ảnh
-        const products = [
-            { id: 1, name: 'Điện thoại iPhone 15', price: '20,000,000đ', image: 'images/img1.jpg' },
-            { id: 2, name: 'Laptop Dell XPS 15', price: '35,000,000đ', image: 'images/img2.jpg' },
-            { id: 3, name: 'Tai nghe AirPods Pro', price: '5,000,000đ', image: 'images/img3.jpg' },
-            { id: 4, name: 'Đồng hồ Apple Watch', price: '10,000,000đ', image: 'images/img4.jpg' },
-            { id: 5, name: 'Bàn phím cơ Keychron', price: '2,500,000đ', image: 'images/img5.jpg' }
-        ];
+        // Dữ liệu sản phẩm Xiaomi (Bạn nhớ chuẩn bị ảnh xiaomi1.jpg -> xiaomi8.jpg nhé)
+const products = [
+    { id: 1, name: 'Xiaomi 14 Ultra', price: '32,990,000đ', image: 'images/xiaomi1.jpg' },
+    { id: 2, name: 'Xiaomi 13 Pro', price: '24,990,000đ', image: 'images/xiaomi2.jpg' },
+    { id: 3, name: 'Redmi Note 13 Pro+', price: '10,490,000đ', image: 'images/xiaomi3.jpg' },
+    { id: 4, name: 'POCO X6 Pro 5G', price: '8,990,000đ', image: 'images/xiaomi4.jpg' },
+    { id: 5, name: 'Redmi Note 12', price: '4,590,000đ', image: 'images/xiaomi5.jpg' },
+    { id: 6, name: 'Xiaomi 12T', price: '11,990,000đ', image: 'images/xiaomi6.jpg' },
+    { id: 7, name: 'Redmi 13C', price: '3,290,000đ', image: 'images/xiaomi7.jpg' },
+    { id: 8, name: 'POCO F5 Pro', price: '12,990,000đ', image: 'images/xiaomi8.jpg' }
+];
 
         const searchInput = document.getElementById('search-input');
         const errorMsg = document.getElementById('error-msg');
