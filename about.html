@@ -6,7 +6,6 @@
     <title>Trả lời Lý Thuyết</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* CSS bổ sung riêng cho trang Lý thuyết để hiển thị code và bảng đẹp hơn */
         pre { background: #eee; padding: 10px; border-radius: 5px; overflow-x: auto; margin: 10px 0; }
         code { font-family: Consolas, monospace; color: #d63384; }
         table { width: 100%; border-collapse: collapse; margin: 15px 0; }
@@ -20,96 +19,96 @@
 </head>
 <body>
     <div class="container">
-        <h2>Phần 1: Lý Thuyết </h2>
+        <h2>Phần 1: Lý Thuyết</h2>
         <a href="index.html">⬅ Quay lại Trang chủ</a>
         <hr><br>
 
-        <h3>Câu 1 [cite: 2]</h3>
+        <h3>Câu 1</h3>
         
-        <h4>1. Position: relative [cite: 3]</h4>
+        <h4>1. Position: relative</h4>
         <ul>
-            <li>Phần tử vẫn nằm trong luồng (normal flow) của trang. [cite: 4]</li>
-            <li>Có thể dịch chuyển bằng top, left, right, bottom. [cite: 5]</li>
-            <li>Khoảng trống ban đầu của phần tử vẫn được giữ. [cite: 6]</li>
+            <li>Phần tử vẫn nằm trong luồng (normal flow) của trang.</li>
+            <li>Có thể dịch chuyển bằng top, left, right, bottom.</li>
+            <li>Khoảng trống ban đầu của phần tử vẫn được giữ.</li>
         </ul>
-        <p><b>Ví dụ:</b> [cite: 7]</p>
+        <p><b>Ví dụ:</b></p>
 <pre><code>.box {
-    position: relative; [cite: 8, 9]
-    left: 20px; [cite: 10]
-    top: 10px; [cite: 11]
-} [cite: 12]</code></pre>
-        <p><b>Ứng dụng:</b> [cite: 13]</p>
+    position: relative;
+    left: 20px;
+    top: 10px;
+}</code></pre>
+        <p><b>Ứng dụng:</b></p>
         <ul>
-            <li>Dịch chuyển nhẹ icon. [cite: 14]</li>
-            <li>Làm phần tử cha để chứa phần tử absolute. [cite: 15]</li>
-            <li>Điều chỉnh vị trí mà không làm hỏng layout. [cite: 16]</li>
+            <li>Dịch chuyển nhẹ icon.</li>
+            <li>Làm phần tử cha để chứa phần tử absolute.</li>
+            <li>Điều chỉnh vị trí mà không làm hỏng layout.</li>
         </ul>
 
-        <h4>2. Position: absolute [cite: 17]</h4>
+        <h4>2. Position: absolute</h4>
         <ul>
-            <li>Phần tử bị loại khỏi luồng của trang. [cite: 18]</li>
-            <li>Định vị theo phần tử cha gần nhất có position khác static. [cite: 19]</li>
-            <li>Nếu không có cha thì căn theo body. [cite: 20]</li>
+            <li>Phần tử bị loại khỏi luồng của trang.</li>
+            <li>Định vị theo phần tử cha gần nhất có position khác static.</li>
+            <li>Nếu không có cha thì căn theo body.</li>
         </ul>
-        <p><b>Ví dụ:</b> [cite: 21]</p>
+        <p><b>Ví dụ:</b></p>
 <pre><code>.parent {
-    position: relative; [cite: 22, 23]
-} [cite: 24]
+    position: relative;
+}
 .child {
-    position: absolute; [cite: 25, 26]
-    top: 10px; [cite: 27]
-    right: 10px; [cite: 28]
-} [cite: 29]</code></pre>
-        <p><b>Ứng dụng:</b> [cite: 30]</p>
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}</code></pre>
+        <p><b>Ứng dụng:</b></p>
         <ul>
-            <li>Nút đóng (X) [cite: 31]</li>
-            <li>Badge thông báo [cite: 32]</li>
-            <li>Menu dropdown [cite: 33]</li>
-            <li>Popup, Tooltip [cite: 34, 35]</li>
+            <li>Nút đóng (X)</li>
+            <li>Badge thông báo</li>
+            <li>Menu dropdown</li>
+            <li>Popup, Tooltip</li>
         </ul>
 
-        <h4>3. Responsive Layout [cite: 36]</h4>
-        <p><b>Ví dụ:</b> Khi thay đổi kích thước màn hình, badge vẫn bám đúng góc của card. [cite: 37, 46]</p>
-<pre><code>.card { position: relative; } [cite: 38, 39, 40]
-.badge { position: absolute; top: 5px; right: 5px; } [cite: 41, 42, 43, 44, 45]</code></pre>
-        <p><b>Ảnh hưởng khi deploy website:</b> [cite: 47]</p>
+        <h4>3. Responsive Layout</h4>
+        <p><b>Ví dụ:</b> Khi thay đổi kích thước màn hình, badge vẫn bám đúng góc của card.</p>
+<pre><code>.card { position: relative; }
+.badge { position: absolute; top: 5px; right: 5px; }</code></pre>
+        <p><b>Ảnh hưởng khi deploy website:</b></p>
         <ul>
-            <li><code>relative</code> giúp layout ổn định trên nhiều màn hình. [cite: 48]</li>
-            <li><code>absolute</code> nếu dùng sai dễ bị lệch trên điện thoại. [cite: 49]</li>
-            <li>Khi deploy cần kết hợp: Flexbox, Grid, Media Query, Đơn vị (%, rem, vw) để website tương thích nhiều thiết bị. [cite: 50, 51, 52, 53, 54, 55]</li>
+            <li><code>relative</code> giúp layout ổn định trên nhiều màn hình.</li>
+            <li><code>absolute</code> nếu dùng sai dễ bị lệch trên điện thoại.</li>
+            <li>Khi deploy cần kết hợp: Flexbox, Grid, Media Query, Đơn vị (%, rem, vw) để website tương thích nhiều thiết bị.</li>
         </ul>
 
-        <h3>Câu 2: Quy trình đăng ký Domain và Hosting [cite: 56, 57]</h3>
+        <h3>Câu 2: Quy trình đăng ký Domain và Hosting</h3>
         <ol>
-            <li><b>Bước 1:</b> Đăng ký tên miền (Ví dụ: Abc.com) [cite: 58, 59, 60, 61]</li>
-            <li><b>Bước 2:</b> Thuê Hosting. Có thể dùng: Netlify, GitHub Pages, Vercel [cite: 62, 63, 64, 65]</li>
-            <li><b>Bước 3:</b> Upload source code (Index.html, Style.css, Script.js) [cite: 66, 67, 68]</li>
-            <li><b>Bước 4:</b> Cấu hình DNS [cite: 69, 70]</li>
+            <li><b>Bước 1:</b> Đăng ký tên miền (Ví dụ: Abc.com)</li>
+            <li><b>Bước 2:</b> Thuê Hosting. Có thể dùng: Netlify, GitHub Pages, Vercel</li>
+            <li><b>Bước 3:</b> Upload source code (Index.html, Style.css, Script.js)</li>
+            <li><b>Bước 4:</b> Cấu hình DNS</li>
         </ol>
         
         <h4>Nhiệm vụ của DNS:</h4>
         <ul>
-            <li>Chuyển tên miền thành địa chỉ IP của hosting. Giúp trình duyệt tìm đúng máy chủ. [cite: 71, 72, 73]</li>
-            <li><b>Ví dụ:</b> Abc.com -> DNS -> 104.xxx.xxx.xxx [cite: 74, 75]</li>
+            <li>Chuyển tên miền thành địa chỉ IP của hosting. Giúp trình duyệt tìm đúng máy chủ.</li>
+            <li><b>Ví dụ:</b> Abc.com -> DNS -> 104.xxx.xxx.xxx</li>
         </ul>
 
-        <h4>Hai công cụ deploy miễn phí: [cite: 76]</h4>
+        <h4>Hai công cụ deploy miễn phí:</h4>
         <ul>
-            <li><b>GitHub Pages:</b> Ưu điểm là miễn phí, kết nối GitHub, dễ dùng. [cite: 77, 78, 79]</li>
-            <li><b>Netlify:</b> Ưu điểm là deploy tự động, có HTTPS, hỗ trợ Domain riêng, Continuous Deployment. [cite: 80, 81, 82, 83, 84, 85]</li>
+            <li><b>GitHub Pages:</b> Ưu điểm là miễn phí, kết nối GitHub, dễ dùng.</li>
+            <li><b>Netlify:</b> Ưu điểm là deploy tự động, có HTTPS, hỗ trợ Domain riêng, Continuous Deployment.</li>
         </ul>
 
-        <h4>Rủi ro bảo mật: [cite: 86]</h4>
-        <p>Nếu cấu hình sai có thể gặp các vấn đề: [cite: 87]</p>
+        <h4>Rủi ro bảo mật:</h4>
+        <p>Nếu cấu hình sai có thể gặp các vấn đề:</p>
         <ul>
-            <li>Lộ mã nguồn [cite: 88]</li>
-            <li>Sai DNS khiến website không truy cập được [cite: 89]</li>
-            <li>Không bật HTTPS gây mất an toàn dữ liệu [cite: 90]</li>
-            <li>Lộ API Key [cite: 91]</li>
-            <li>Bị tấn công nếu quyền truy cập quá rộng [cite: 92]</li>
+            <li>Lộ mã nguồn</li>
+            <li>Sai DNS khiến website không truy cập được</li>
+            <li>Không bật HTTPS gây mất an toàn dữ liệu</li>
+            <li>Lộ API Key</li>
+            <li>Bị tấn công nếu quyền truy cập quá rộng</li>
         </ul>
 
-        <h3>Câu 3: Thuộc tính Let, Var [cite: 93]</h3>
+        <h3>Câu 3: Thuộc tính Let, Var</h3>
         <table>
             <thead>
                 <tr>
@@ -141,62 +140,61 @@
                 </tr>
             </tbody>
         </table>
-        <p><i>(Dữ liệu bảng dựa trên tài liệu cung cấp)</i> [cite: 94]</p>
 
-        <p><b>Ví dụ:</b> [cite: 95]</p>
+        <p><b>Ví dụ:</b></p>
         <ul>
-            <li><code>var a = 10; var a = 20;</code> (Hợp lệ) [cite: 96]</li>
-            <li><code>let b = 10; let b = 20;</code> (Lỗi) [cite: 97]</li>
-            <li><code>const PI = 3.14; PI = 5;</code> (Lỗi) [cite: 98]</li>
+            <li><code>var a = 10; var a = 20;</code> (Hợp lệ)</li>
+            <li><code>let b = 10; let b = 20;</code> (Lỗi)</li>
+            <li><code>const PI = 3.14; PI = 5;</code> (Lỗi)</li>
         </ul>
 
-        <p><b>Ví dụ lỗi thường gặp (TDZ):</b> [cite: 99]</p>
-<pre><code>console.log(x); [cite: 100]
-let x = 5; [cite: 101]
-// Kết quả: ReferenceError [cite: 102, 103]</code></pre>
+        <p><b>Ví dụ lỗi thường gặp (TDZ):</b></p>
+<pre><code>console.log(x);
+let x = 5;
+// Kết quả: ReferenceError</code></pre>
 
-        <h4>Debug bằng Chrome DevTools [cite: 104]</h4>
-        <p>Có thể dùng các công cụ: Console, Sources, Breakpoint, Debugger, Network. [cite: 105, 106, 107, 108, 109, 110]</p>
-        <p><b>Các bước debug:</b> [cite: 111]</p>
+        <h4>Debug bằng Chrome DevTools</h4>
+        <p>Có thể dùng các công cụ: Console, Sources, Breakpoint, Debugger, Network.</p>
+        <p><b>Các bước debug:</b></p>
         <ol>
-            <li>Nhấn F12. [cite: 112]</li>
-            <li>Mở Console để xem lỗi. [cite: 113]</li>
-            <li>Đặt Breakpoint. [cite: 114]</li>
-            <li>Theo dõi giá trị biến. [cite: 115]</li>
-            <li>Sửa lỗi rồi chạy lại. [cite: 116]</li>
+            <li>Nhấn F12.</li>
+            <li>Mở Console để xem lỗi.</li>
+            <li>Đặt Breakpoint.</li>
+            <li>Theo dõi giá trị biến.</li>
+            <li>Sửa lỗi rồi chạy lại.</li>
         </ol>
 
-        <h3>Câu 4: Event Delegation là gì? [cite: 117, 118]</h3>
-        <p>Là kỹ thuật chỉ gắn một Event Listener lên phần tử cha, sau đó xử lý sự kiện cho các phần tử con thông qua cơ chế Event Bubbling. [cite: 119]</p>
+        <h3>Câu 4: Event Delegation là gì?</h3>
+        <p>Là kỹ thuật chỉ gắn một Event Listener lên phần tử cha, sau đó xử lý sự kiện cho các phần tử con thông qua cơ chế Event Bubbling.</p>
         
-        <p><b>Ví dụ:</b> [cite: 120]</p>
-        <p>HTML: [cite: 121]</p>
-<pre><code>&lt;ul id="list"&gt; [cite: 122]
-    &lt;li&gt;A&lt;/li&gt; [cite: 123]
-    &lt;li&gt;B&lt;/li&gt; [cite: 124]
-    &lt;li&gt;C&lt;/li&gt; [cite: 125]
-&lt;/ul&gt; [cite: 126]</code></pre>
+        <p><b>Ví dụ:</b></p>
+        <p>HTML:</p>
+<pre><code>&lt;ul id="list"&gt;
+    &lt;li&gt;A&lt;/li&gt;
+    &lt;li&gt;B&lt;/li&gt;
+    &lt;li&gt;C&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
 
-        <p>JavaScript: [cite: 127]</p>
-<pre><code>document.getElementById("list").addEventListener("click", function(e) { [cite: 128]
-    if(e.target.tagName === "LI") { [cite: 129]
-        alert(e.target.innerText); [cite: 130]
-    } [cite: 131]
-}); [cite: 132]</code></pre>
+        <p>JavaScript:</p>
+<pre><code>document.getElementById("list").addEventListener("click", function(e) {
+    if(e.target.tagName === "LI") {
+        alert(e.target.innerText);
+    }
+});</code></pre>
         
-        <p>Nếu sau này thêm phần tử động bằng JS: [cite: 133]</p>
-<pre><code>let li = document.createElement("li"); [cite: 134]
-li.innerText = "D"; [cite: 135]
-document.getElementById("list").appendChild(li); [cite: 136]</code></pre>
-        <p>...thì phần tử mới vẫn hoạt động mà không cần gắn thêm Event Listener. [cite: 137]</p>
+        <p>Nếu sau này thêm phần tử động bằng JS:</p>
+<pre><code>let li = document.createElement("li");
+li.innerText = "D";
+document.getElementById("list").appendChild(li);</code></pre>
+        <p>...thì phần tử mới vẫn hoạt động mà không cần gắn thêm Event Listener.</p>
 
-        <h4>Lợi ích: [cite: 138]</h4>
+        <h4>Lợi ích:</h4>
         <ul>
-            <li>Tiết kiệm bộ nhớ. [cite: 139]</li>
-            <li>Tăng hiệu suất. [cite: 140]</li>
-            <li>Dễ bảo trì. [cite: 141]</li>
-            <li>Phù hợp với danh sách động. [cite: 142]</li>
-            <li>Hoạt động tốt với HTML/CSS khi cập nhật giao diện. [cite: 143]</li>
+            <li>Tiết kiệm bộ nhớ.</li>
+            <li>Tăng hiệu suất.</li>
+            <li>Dễ bảo trì.</li>
+            <li>Phù hợp với danh sách động.</li>
+            <li>Hoạt động tốt với HTML/CSS khi cập nhật giao diện.</li>
         </ul>
 
     </div>
