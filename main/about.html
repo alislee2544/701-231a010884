@@ -1,27 +1,222 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <title>Thông tin Điểm danh</title>
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trả lời Lý thuyết</title>
+<link rel="stylesheet" href="css/style.css" />
+<style>
+  /* CSS bổ sung để hiển thị code và bảng đẹp hơn cho phần lý thuyết */
+  pre {
+    background-color: #f3f4f6;
+    padding: 10px;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+  .theory-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  .theory-table th, .theory-table td {
+    border: 1px solid #d1d5db;
+    padding: 8px;
+    text-align: left;
+  }
+  .theory-table th {
+    background-color: #e5e7eb;
+  }
+  .theory-section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+</style>
 </head>
 <body>
-    <div class="container text-center">
-        <a href="index.html" class="back-link">← Quay lại Menu</a>
-        <h1>THÔNG TIN ĐIỂM DANH</h1>
-        
-        <div class="profile-card">
-            <img src="images/avatar.jpg" alt="Avatar" onerror="this.src='https://via.placeholder.com/150'" class="avatar-img">
-            <div class="profile-info">
-                <p><strong>Họ và tên:</strong>Lê Văn Thành Đạt</p>
-                <p><strong>MSSV:</strong> 231A010884</p>
-                <hr class="divider">
-                <p><strong>Link Deploy Bài Làm:</strong></p>
-                <a href="https://username.github.io/701-231a010884/" target="_blank" class="deploy-link">
-                    https://username.github.io/701-231a010884/
-                </a>
-            </div>
-        </div>
+
+<header>
+  <h1>Bài tập thực hành - MSSV 701</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Trang chủ</a></li>
+      <li><a href="baitap01.html">Bài 1: Danh sách sản phẩm</a></li>
+      <li><a href="baitap02.html">Bài 2: Form đăng ký</a></li>
+      <li><a href="baitap03.html">Bài 3: Đếm ngược</a></li>
+      <li><a href="about.html" class="active">Trả lời Lý thuyết</a></li>
+      <li><a href="contact.html">Điểm danh</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="card">
+    <h2>Phần 1: Lý Thuyết [cite: 1]</h2>
+
+    <div class="theory-section">
+      <h3>Câu 1: Position relative và absolute [cite: 2]</h3>
+      
+      <h4>Position : relative [cite: 3]</h4>
+      <ul>
+        <li>Phần tử vẫn nằm trong luồng (normal flow) của trang[cite: 4].</li>
+        <li>Có thể dịch chuyển bằng top, left, right, bottom[cite: 5].</li>
+        <li>Khoảng trống ban đầu của phần tử vẫn được giữ[cite: 6].</li>
+      </ul>
+      <p><b>Ví dụ[cite: 7]:</b></p>
+<pre><code>.box {
+  Position: relative; [cite: 9]
+  Left: 20px; [cite: 10]
+  Top: 10px; [cite: 11]
+} [cite: 12]</code></pre>
+      <p><b>* Ứng dụng[cite: 13]:</b></p>
+      <ul>
+        <li>Dịch chuyển nhẹ icon[cite: 14].</li>
+        <li>Làm phần tử cha để chứa phần tử absolute[cite: 15].</li>
+        <li>Điều chỉnh vị trí mà không làm hỏng layout[cite: 16].</li>
+      </ul>
+
+      <h4>Position : absolute [cite: 17]</h4>
+      <ul>
+        <li>Phần tử bị loại khỏi luồng của trang[cite: 18].</li>
+        <li>Định vị theo phần tử cha gần nhất có position khác static[cite: 19].</li>
+        <li>Nếu không có cha thì căn theo body[cite: 20].</li>
+      </ul>
+      <p><b>Ví dụ[cite: 21]:</b></p>
+<pre><code>.parent{
+  Position: relative; [cite: 23]
+} [cite: 24]
+.child{
+  Position:absolute; [cite: 26]
+  Top:10px; [cite: 27]
+  Right:10px; [cite: 28]
+} [cite: 29]</code></pre>
+      <p><b>Ứng dụng [cite: 30]:</b> Nút đóng (X) [cite: 31], Badge thông báo [cite: 32], Menu dropdown [cite: 33], Popup [cite: 34], Tooltip[cite: 35].</p>
+
+      <h4>Responsive Layout [cite: 36]</h4>
+      <p><b>Ví dụ[cite: 37]:</b></p>
+<pre><code>.card{ position:relative; } [cite: 38, 39, 40]
+.badge{ position:absolute; top:5px; right:5px; } [cite: 41, 42, 43, 44, 45]</code></pre>
+      <p>Khi thay đổi kích thước màn hình, badge vẫn bám đúng góc của card[cite: 46].</p>
+      <p><b>Ảnh hưởng khi deploy website[cite: 47]:</b></p>
+      <ul>
+        <li>relative giúp layout ổn định trên nhiều màn hình[cite: 48].</li>
+        <li>absolute nếu dùng sai dễ bị lệch trên điện thoại[cite: 49].</li>
+        <li>Khi deploy cần kết hợp: Flexbox [cite: 51], Grid [cite: 52], Media Query [cite: 53], Đơn vị %, rem, vw [cite: 54] để website tương thích nhiều thiết bị[cite: 55].</li>
+      </ul>
     </div>
+
+    <div class="theory-section">
+      <h3>Câu 2: Quy trình đăng ký Domain và Hosting [cite: 56, 57]</h3>
+      <ol>
+        <li><b>Bước 1:</b> Đăng ký tên miền [cite: 58, 59] (Ví dụ: Abc.com [cite: 60, 61]).</li>
+        <li><b>Bước 2:</b> Thuê Hosting [cite: 62, 63] (Có thể dùng: Netlify, GitHub Pages, Vercel [cite: 64, 65]).</li>
+        <li><b>Bước 3:</b> Upload source code [cite: 66, 67] (Index.html, Style.css, Script.js [cite: 68]).</li>
+        <li><b>Bước 4:</b> Cấu hình DNS[cite: 69, 70].</li>
+      </ol>
+      <p><b>DNS có nhiệm vụ[cite: 71]:</b></p>
+      <ul>
+        <li>Chuyển tên miền thành địa chỉ IP của hosting[cite: 72].</li>
+        <li>Giúp trình duyệt tìm đúng máy chủ[cite: 73].</li>
+        <li>Ví dụ: Abc.com -> DNS -> 104.xxx.xxx.xxx[cite: 74, 75].</li>
+      </ul>
+      <p><b>Hai công cụ deploy miễn phí[cite: 76]:</b></p>
+      <ul>
+        <li><b>GitHub Pages [cite: 77]:</b> Ưu điểm là Miễn phí, Kết nối GitHub, Dễ dùng[cite: 78, 79].</li>
+        <li><b>Netlify [cite: 80]:</b> Ưu điểm là Deploy tự động [cite: 81, 82], Có HTTPS [cite: 83], Hỗ trợ Domain riêng [cite: 84], Continuous Deployment[cite: 85].</li>
+      </ul>
+      <p><b>Rủi ro bảo mật [cite: 86]:</b> Nếu cấu hình sai có thể lộ mã nguồn [cite: 87, 88], sai DNS khiến website không truy cập được [cite: 89], không bật HTTPS gây mất an toàn dữ liệu [cite: 90], lộ API Key [cite: 91], bị tấn công nếu quyền truy cập quá rộng[cite: 92].</p>
+    </div>
+
+    <div class="theory-section">
+      <h3>Câu 3: Phân biệt let, var, const và Debug [cite: 93]</h3>
+      <table class="theory-table">
+        <tr>
+          <th>Thuộc tính [cite: 94]</th>
+          <th>Let [cite: 94]</th>
+          <th>Var [cite: 94]</th>
+        </tr>
+        <tr>
+          <td>Scope [cite: 94]</td>
+          <td>Block [cite: 94]</td>
+          <td>Function [cite: 94]</td>
+        </tr>
+        <tr>
+          <td>Khai báo lại [cite: 94]</td>
+          <td>Không [cite: 94]</td>
+          <td>Có [cite: 94]</td>
+        </tr>
+        <tr>
+          <td>Gán Lại [cite: 94]</td>
+          <td>có [cite: 94]</td>
+          <td>có [cite: 94]</td>
+        </tr>
+        <tr>
+          <td>Hosting [cite: 94]</td>
+          <td>Có nhưng tdz [cite: 94]</td>
+          <td>Có (undefined) [cite: 94]</td>
+        </tr>
+      </table>
+      
+      <p><b>Ví dụ[cite: 95]:</b></p>
+      <ul>
+        <li><code>Var a = 10; Var a = 20;</code> (Hợp lệ) [cite: 96]</li>
+        <li><code>Let b = 10; Let b = 20;</code> (Lỗi) [cite: 97]</li>
+        <li><code>Const PI = 3.14; PI = 5;</code> (Lỗi) [cite: 98]</li>
+      </ul>
+
+      <p><b>Ví dụ lỗi thường gặp[cite: 99]:</b></p>
+<pre><code>Console.log(x); [cite: 100]
+Let x = 5; [cite: 101]
+// Kết quả: ReferenceError [cite: 102, 103]</code></pre>
+      
+      <p><b>Debug bằng Chrome DevTools[cite: 104]:</b></p>
+      <p>Có thể dùng: Console [cite: 105, 106], Sources [cite: 107], Breakpoint [cite: 108], Debugger [cite: 109], Network[cite: 110].</p>
+      <p>Các bước[cite: 111]:</p>
+      <ol>
+        <li>Nhấn F12[cite: 112].</li>
+        <li>Mở Console để xem lỗi[cite: 113].</li>
+        <li>Đặt Breakpoint[cite: 114].</li>
+        <li>Theo dõi giá trị biến[cite: 115].</li>
+        <li>Sửa lỗi rồi chạy lại[cite: 116].</li>
+      </ol>
+    </div>
+
+    <div class="theory-section">
+      <h3>Câu 4: Event Delegation [cite: 117]</h3>
+      <p><b>Event Delegation là gì? [cite: 118]</b></p>
+      <p>Là kỹ thuật chỉ gắn một Event Listener lên phần tử cha, sau đó xử lý sự kiện cho các phần tử con thông qua cơ chế Event Bubbling[cite: 119].</p>
+      <p><b>Ví dụ[cite: 120]:</b></p>
+      <p><i>HTML[cite: 121]:</i></p>
+<pre><code>&lt;ul id="list"&gt; [cite: 122]
+  &lt;li&gt;A&lt;/li&gt; [cite: 123]
+  &lt;li&gt;B&lt;/li&gt; [cite: 124]
+  &lt;li&gt;C&lt;/li&gt; [cite: 125]
+&lt;/ul&gt; [cite: 126]</code></pre>
+      <p><i>JavaScript[cite: 127]:</i></p>
+<pre><code>Document.getElementById("list").addEventListener("click", function(e){ [cite: 128]
+  If(e.target.tagName==="LI"){ [cite: 129]
+    Alert(e.target.innerText); [cite: 130]
+  } [cite: 131]
+}); [cite: 132]</code></pre>
+      <p>Nếu sau này thêm[cite: 133]:</p>
+<pre><code>Let li=document.createElement("li"); [cite: 134]
+li.innerText="D"; [cite: 135]
+document.getElementById("list").appendChild(li); [cite: 136]</code></pre>
+      <p>...thì phần tử mới vẫn hoạt động mà không cần gắn thêm Event Listener[cite: 137].</p>
+      
+      <p><b>Lợi ích[cite: 138]:</b></p>
+      <ul>
+        <li>Tiết kiệm bộ nhớ[cite: 139].</li>
+        <li>Tăng hiệu suất[cite: 140].</li>
+        <li>Dễ bảo trì[cite: 141].</li>
+        <li>Phù hợp với danh sách động[cite: 142].</li>
+        <li>Hoạt động tốt với HTML/CSS khi cập nhật giao diện[cite: 143].</li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<footer>&copy; 2026 - Đề thi kết thúc học phần</footer>
+
 </body>
 </html>
